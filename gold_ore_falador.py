@@ -1,10 +1,22 @@
-import pyautogui, sys
+import pyautogui, sys, keyboard, time
 
 
-screenWidth, screenHeight = pyautogui.size()
-screenWidth, screenHeight
+while True:
+    # Get screen width and height
+    screenWidth, screenHeight = pyautogui.size()
+    print('width:', screenWidth, 'Height:', screenHeight)
 
-currentMouseX, currentMouseY = pyautogui.position()
-currentMouseX, currentMouseY
+    # Get current mouse position
+    currentMouseX, currentMouseY = pyautogui.position()
+    print('mouseX:', currentMouseX, 'mouseY:', currentMouseY)
 
-pyautogui.moveTo(1919, 1079, duration=0.25)
+    # Move mouse to a specified position
+    pyautogui.moveTo(1019, 1079, duration=0.25)
+
+
+    # Check for 'esc' key press to break the loop
+    if keyboard.is_pressed('esc'):
+        print("Escape key pressed. Exiting loop.")
+        break
+
+    time.sleep(3)
