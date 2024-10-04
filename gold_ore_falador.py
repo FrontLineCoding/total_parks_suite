@@ -20,6 +20,6 @@ while not terminate:
     currentMouseX, currentMouseY = ui.position()
     print('mouseX:', currentMouseX, 'mouseY:', currentMouseY)
 
-    ui.moveTo(1019, 1079, duration=0.25)
+    ui.moveTo(960, 540, duration=0.25)
 
     time.sleep(3)
