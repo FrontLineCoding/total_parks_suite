@@ -1,0 +1,84 @@
+Table User {
+    id int [primary key] // Unique user ID
+    Name varchar
+    Birthdate date
+    Location_State varchar
+    Location_Town varchar
+    Job_Title varchar
+    Employer varchar
+    Wakeup_Time time
+    Sleep_Time time
+  }
+  
+  Table Dailies {
+    id int [primary key]
+    User_id int [ref: > User.id] // Links to the User table
+    Daily_Name varchar
+    Type varchar // 'Must' or 'Want'
+    Frequency varchar // e.g., 'Daily', 'Weekly'
+    Prefered_Time_Start time
+    Prefered_Time_End time
+  }
+  
+  Table Skills {
+    id int [primary key]
+    User_id int [ref: > User.id]
+    Skill_Name varchar
+    Level int // Skill level, e.g., language or fitness
+    Prefered_Time_Start time
+    Prefered_Time_End time
+    Frequency varchar // e.g., 'Daily', 'Weekly'
+  }
+  
+  Table Projects {
+    id int [primary key]
+    User_id int [ref: > User.id]
+    Project_Name varchar
+    Status varchar // e.g., 'In Progress', 'Completed'
+    Deadline date
+  }
+  
+  Table Goals {
+    id int [primary key]
+    User_id int [ref: > User.id]
+    Goal_Name varchar
+    Target_Date date
+    Progress varchar // Progress status or percentage
+  }
+  
+  Table Mood {
+    id int [primary key]
+    User_id int [ref: > User.id]
+    Mood_State varchar // e.g., 'Happy', 'Stressed', 'Neutral'
+    Date date
+  }
+  
+  Table Likes_Dislikes {
+    id int [primary key]
+    User_id int [ref: > User.id]
+    Type varchar // 'Like' or 'Dislike'
+    Category varchar // e.g., 'Food', 'Music', 'Anime'
+    Item varchar // Specific item or category of interest
+  }
+  
+  Table Media_Tracking {
+    id int [primary key]
+    User_id int [ref: > User.id]
+    Media_Type varchar // e.g., 'Anime', 'Game'
+    Title varchar
+    Progress int // Percentage or episode count
+    Status varchar // 'Watching', 'Completed'
+  }
+  
+  Table Workout_History {
+    id int [primary key]
+    User_id int [ref: > User.id]
+    Exercise_Name varchar
+    Weight int
+    Sets int
+    Reps int
+    Date date
+    Intensity varchar // Optional: to track difficulty
+  }
+  
+  
